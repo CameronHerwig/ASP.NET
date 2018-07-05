@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Services;
 using OdeToFood.ViewModels;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace OdeToFood.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
@@ -40,7 +42,7 @@ namespace OdeToFood.Controllers
             }          
         }
 
-        [HttpGet]
+        [HttpGet]        
         public IActionResult Create()
         {
             return View();
